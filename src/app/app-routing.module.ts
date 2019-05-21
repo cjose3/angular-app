@@ -15,9 +15,9 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: './home/home.module#HomeModule',
-    canActivate: [AuthenticatedGuard],
-    canLoad: [AuthenticatedGuard]
+    loadChildren: './home/home.module#HomeModule'
+    // canActivate: [AuthenticatedGuard],
+    // canLoad: [AuthenticatedGuard]
   },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthenticatedGuard] }
 ]

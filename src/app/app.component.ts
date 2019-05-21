@@ -16,6 +16,6 @@ export class AppComponent {
 
   isLoggedIn: boolean
   constructor(private breakPointObserver: BreakpointObserver, private authenticationService: AuthenticationService) {
-    this.isLoggedIn = authenticationService.isLoggedIn()
+    this.isLoggedIn = true //authenticationService.isLoggedIn()
   }
 }
