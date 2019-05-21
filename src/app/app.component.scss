@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.mat-sidenav-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  // The height of the toolbar changes on small devices, therefore the positions of the container has to change too.
+  // https://github.com/angular/material2/blob/master/src/lib/toolbar/toolbar.scss
+  top: 64px;
+  @media ($mat-xsmall) {
+    top: 56px;
+  }
+}

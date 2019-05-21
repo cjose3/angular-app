@@ -1,0 +1,25 @@
+<ng-container *ngIf="isLoggedIn; else loginTemplate">
+  <app-toolbar class="toolbar" role="heading" (eventLeftMenuClicked)="sidenav.toggle()"></app-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #sidenav
+      class="sidenav"
+      [fixedInViewport]="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)"
+    >
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+<ng-template #loginTemplate>
+  <main class="h-100">
+    <router-outlet></router-outlet>
+  </main>
+</ng-template>

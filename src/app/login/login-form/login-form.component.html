@@ -1,0 +1,19 @@
+<form fxLayout="column" fxLayoutGap="16px" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="username" matInput placeholder="Enter your username" />
+    <mat-error *ngIf="username.invalid">You must enter an username</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      formControlName="password"
+      matInput
+      placeholder="Enter your password"
+      [type]="passwordHidden ? 'password' : 'text'"
+    />
+    <button type="button" matSuffix mat-icon-button (click)="passwordHidden = !passwordHidden">
+      <mat-icon>{{ passwordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">You must enter a password</mat-error>
+  </mat-form-field>
+  <button type="submit" class="uppercase" mat-flat-button color="primary">Login</button>
+</form>
